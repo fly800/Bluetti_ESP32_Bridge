@@ -484,7 +484,13 @@ void handleMQTT(){
       }
     }
     
-    client.loop();
+    // Add your battery level check and AC control logic here
+    int batteryLevel = TOTAL_BATTERY_PERCENT; // Implement this function to get the current battery level
+    int batteryThreshold = 60; // Set your desired battery threshold here
+    if (batteryLevel > batteryThreshold) {
+        // Turn on AC
+        publishTopic(AC_OUTPUT_ON, "1");
+  }
 }
 
 bool isMQTTconnected(){

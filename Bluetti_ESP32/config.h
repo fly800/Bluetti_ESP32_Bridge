@@ -37,7 +37,7 @@
 
 
 #ifndef BLUETTI_TYPE
-  #define BLUETTI_TYPE AC300
+  #define BLUETTI_TYPE AC200M
 #endif
 
 
