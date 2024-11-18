@@ -445,10 +445,8 @@ void initMQTT(){
       publishDeviceState();
       publishDeviceStateStatus();
     }
-
-    
-      
-};
+  
+}
 
 void handleMQTT(){
     ESPBluettiSettings settings = get_esp32_bluetti_settings();
@@ -491,6 +489,7 @@ void handleMQTT(){
         // Turn on AC
         publishTopic(AC_OUTPUT_ON, "1");
   }
+  client.loop();
 }
 
 bool isMQTTconnected(){
