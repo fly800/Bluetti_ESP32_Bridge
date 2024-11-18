@@ -482,14 +482,15 @@ void handleMQTT(){
       }
     }
     
+    client.loop();
+
     // Add your battery level check and AC control logic here
     int batteryLevel = TOTAL_BATTERY_PERCENT; // Implement this function to get the current battery level
     int batteryThreshold = 60; // Set your desired battery threshold here
     if (batteryLevel > batteryThreshold) {
         // Turn on AC
         publishTopic(AC_OUTPUT_ON, "1");
-  }
-  client.loop();
+    }
 }
 
 bool isMQTTconnected(){
@@ -505,12 +506,22 @@ bool isMQTTconnected(){
 int getPublishErrorCount(){
     return publishErrorCount;
 }
+
 unsigned long getLastMQTTMessageTime(){
     return lastMQTTMessage;
 }
+
 unsigned long getLastMQTTDeviceStateMessageTime(){
     return previousDeviceStatePublish;
 }
+
 unsigned long getLastMQTTDeviceStateStatusMessageTime(){
     return previousDeviceStateStatusPublish;
+}
+
+// Implement the getBatteryLevel function
+int getBatteryLevel() {
+    // Add logic to retrieve the current battery level from the device
+    // This is a placeholder implementation
+    return 60; // Example battery level
 }
